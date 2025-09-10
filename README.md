@@ -77,9 +77,9 @@ Siga os passos abaixo para configurar e executar a aplicação em seu ambiente l
 ### 1. Configuração do Backend
 1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/seu-usuario/nome-do-repositorio.git
-    cd nome-do-repositorio/backend
-    ```2.  **Crie o Banco de Dados:** Crie uma base de dados no PostgreSQL (ex: `wmw_vendas_db`).
+    git clone https://github.com/LirouVictor/BellaFace.git
+    cd BellaFace/backend
+2.  **Crie o Banco de Dados:** Crie uma base de dados no PostgreSQL (ex: `wmw_vendas_db`).
 
 3.  **Configure a Conexão e Inicialização:**
     -   Abra o arquivo `backend/src/main/resources/application.properties`.
@@ -119,15 +119,3 @@ Siga os passos abaixo para configurar e executar a aplicação em seu ambiente l
 
 ### 3. Acessando a Aplicação
 Abra seu navegador em **`http://localhost:5173`**. Você será direcionado para a tela de login. Use as credenciais definidas no arquivo `data.sql` para acessar (ex: `cliente1` / `senha123`).
-
----
-
-## 📝 Documentação da API (Endpoints)
-
-A API expõe os seguintes endpoints, que podem ser testados com a coleção do Postman inclusa no projeto.
-
-| Método | URL                               | Descrição                                                                          |
-| :----- | :-------------------------------- | :--------------------------------------------------------------------------------- |
-| `POST` | `/api/clientes/login`             | Autentica um cliente e retorna seu ID e nome.                                      |
-| `GET`  | `/api/produtos`                   | Retorna a lista de todos os produtos disponíveis.                                    |
-| `POST` | `/api/pedidos?clienteId={id}`     | Cria um novo pedido para o cliente especificado.                                     |
