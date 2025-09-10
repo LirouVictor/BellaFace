@@ -68,39 +68,40 @@ A interface foi construída como uma SPA (Single Page Application) com uma estru
 Siga os passos abaixo para configurar e executar a aplicação em seu ambiente local.
 
 ### Pré-requisitos
--   **Java JDK 17** ou superior.
--   **Maven 3.x**
--   **Node.js 18.x** ou superior (com npm).
--   Uma instância do **PostgreSQL** em execução.
--   Um editor de código, como **VS Code** (recomendado com o "Extension Pack for Java").
+Para garantir a compatibilidade, certifique-se de que seu ambiente atende aos seguintes requisitos:
+
+-   **Java JDK:** Versão **17** ou superior. O projeto está configurado para compilar com a versão 17. Você pode verificar sua versão com `java -version`.
+-   **Node.js:** Versão **LTS** (Long-Term Support) recomendada, como **18.x** ou **20.x**. Você pode verificar sua versão com `node -v`.
+    -   *Dica: Use uma ferramenta como o [nvm](https://github.com/nvm-sh/nvm) (Node Version Manager) para gerenciar facilmente múltiplas versões do Node.js.*
+-   **Banco de Dados:** Uma instância do **PostgreSQL** em execução.
+-   **Git:** Para clonar o repositório.
+
+*(**Observação:** Não é necessário ter o Maven instalado globalmente, pois o projeto utiliza o Maven Wrapper (`mvnw`), que baixará a versão correta automaticamente.)*
 
 ### 1. Configuração do Backend
-1.  **Clone o repositório:**
+1.  **Clone o repositório e navegue até a pasta do backend:**
     ```bash
     git clone https://github.com/LirouVictor/BellaFace.git
-    cd BellaFace/backend
+    cd nome-do-repositorio/backend
+    ```
 2.  **Crie o Banco de Dados:** Crie uma base de dados no PostgreSQL (ex: `wmw_vendas_db`).
 
-3.  **Configure a Conexão e Inicialização:**
+3.  **Configure a Conexão:**
     -   Abra o arquivo `backend/src/main/resources/application.properties`.
-    -   Altere as seguintes propriedades com as suas credenciais do PostgreSQL:
-        ```properties
-        spring.datasource.url=jdbc:postgresql://localhost:5432/wmw_vendas_db
-        spring.datasource.username=seu_usuario_postgres
-        spring.datasource.password=sua_senha_postgres
-        ```
-    -   Este projeto já está configurado para **criar as tabelas e popular o banco de dados automaticamente** ao iniciar, utilizando o arquivo `data.sql`. As seguintes propriedades garantem esse comportamento:
-        ```properties
-        spring.jpa.hibernate.ddl-auto=create-drop
-        spring.sql.init.mode=always
-        spring.jpa.defer-datasource-initialization=true
-        ```
+    -   Altere as propriedades `spring.datasource.url`, `spring.datasource.username`, e `spring.datasource.password` com suas credenciais do PostgreSQL.
+
 4.  **Execute a Aplicação:**
-    Dentro da pasta `backend`, execute o comando:
-    ```bash
-    ./mvnw spring-boot:run
-    ```
-    O backend estará em execução em `http://localhost:8080`.
+    Use o Maven Wrapper para compilar e rodar o projeto. Ele cuidará de tudo para você.
+    
+    *   No Linux/macOS:
+        ```bash
+        ./mvnw spring-boot:run
+        ```
+    *   No Windows (CMD ou PowerShell):
+        ```bash
+        .\mvnw.cmd spring-boot:run
+        ```
+    O backend estará em execução em `http://localhost:8080`. O banco de dados será criado e populado automaticamente na primeira inicialização.
 
 ### 2. Configuração do Frontend
 1.  **Abra um novo terminal** e navegue até a pasta do frontend:
@@ -118,4 +119,6 @@ Siga os passos abaixo para configurar e executar a aplicação em seu ambiente l
     O frontend estará acessível em `http://localhost:5173`.
 
 ### 3. Acessando a Aplicação
-Abra seu navegador em **`http://localhost:5173`**. Você será direcionado para a tela de login. Use as credenciais definidas no arquivo `data.sql` para acessar (ex: `cliente1` / `senha123`).
+Abra seu navegador em **`http://localhost:5173`**. Use as credenciais definidas no arquivo `data.sql` para acessar (ex: `cliente1` / `senha123`).
+
+---
